@@ -43,7 +43,7 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
             pstm.setString(2, lastName);
             pstm.setByte(3, age);
             pstm.executeUpdate();
-            System.out.println("User с именем – " +name + " добавлен в базу данных");
+            System.out.println("User с именем – " + name + " добавлен в базу данных");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -53,7 +53,7 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
         try (PreparedStatement pstm = conn.prepareStatement("DELETE FROM users WHERE id = ?")) {
             pstm.setLong(1, id);
             pstm.executeUpdate();
-            System.out.println("The user with index "+id+"   has been deleted ");
+            System.out.println("The user with index " + id + "   has been deleted ");
         } catch (SQLException e) {
             e.printStackTrace();
         }
