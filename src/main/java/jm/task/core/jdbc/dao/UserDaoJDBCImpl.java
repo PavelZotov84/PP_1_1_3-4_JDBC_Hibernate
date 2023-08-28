@@ -36,12 +36,12 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
 
     }
 
-    public void saveUser(String name, String lastName, byte age) {
+    public void saveUser(String name, String lastName, int age) {
         try (PreparedStatement pstm = conn
                 .prepareStatement("INSERT INTO users (name, lastName, age) VALUES (?, ?, ?)")) {
             pstm.setString(1, name);
             pstm.setString(2, lastName);
-            pstm.setByte(3, age);
+            pstm.setInt(3, age);
             pstm.executeUpdate();
             System.out.println("User с именем – " + name + " добавлен в базу данных");
         } catch (SQLException e) {
